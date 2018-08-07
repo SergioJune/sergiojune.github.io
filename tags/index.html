@@ -6,7 +6,7 @@
     
     
     
-    <title>归档 | sergiojune | �ο�ʼ�ĵط� | python,�㷨������ѧϰ�����棬���ݷ���</title>
+    <title>tags | sergiojune | �ο�ʼ�ĵط� | python,�㷨������ѧϰ�����棬���ݷ���</title>
     <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     
     <meta name="theme-color" content="#77AAFF">
@@ -42,13 +42,14 @@
     <meta name="description" content="�ұ�΢ĩ������ȴҲ������ա�">
 <meta name="keywords" content="python,�㷨������ѧϰ�����棬���ݷ���">
 <meta property="og:type" content="website">
-<meta property="og:title" content="sergiojune | �ο�ʼ�ĵط�">
-<meta property="og:url" content="http://sergiojune.com/archives/index.html">
+<meta property="og:title" content="tags">
+<meta property="og:url" content="http://sergiojune.com/tags/index.html">
 <meta property="og:site_name" content="sergiojune | �ο�ʼ�ĵط�">
 <meta property="og:description" content="�ұ�΢ĩ������ȴҲ������ա�">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-08-06T23:35:16.087Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="sergiojune | �ο�ʼ�ĵط�">
+<meta name="twitter:title" content="tags">
 <meta name="twitter:description" content="�ұ�΢ĩ������ȴҲ������ա�">
     
         <link rel="alternate" type="application/atom+xml" title="sergiojune | �ο�ʼ�ĵط�" href="/atom.xml">
@@ -92,7 +93,7 @@
                   </a>
               </li>
             
-              <li class="waves-block waves-effect active">
+              <li class="waves-block waves-effect">
                   <a href="/archives"  >
                     <i class="icon icon-lg icon-archives"></i>
                     <span>归 档</span><i class="icon icon-lg icon-caret-left"></i>
@@ -106,7 +107,7 @@
                   </a>
               </li>
             
-              <li class="waves-block waves-effect">
+              <li class="waves-block waves-effect active">
                   <a href="/tags"  >
                     <i class="icon icon-lg icon-tags"></i>
                     <span>标 签</span><i class="icon icon-lg icon-caret-left"></i>
@@ -151,7 +152,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">归档</div>
+        <div class="flex-col header-title ellipsis">标签</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -168,7 +169,7 @@
         </a>
     </div>
 </header>
-<header class="content-header archives-header">
+<header class="content-header tags-header">
     
     
     <div class="container fade-scale">
@@ -178,7 +179,19 @@
             </h1>
             <h5 class="subtitle">
                 
-                    <h1 class="archivestitle">路漫漫其修远兮</h1>
+                    <h1 id="pagetitle" class="archivestitle"></h1>
+                    <script>
+                        if(location.href.indexOf('about')!=-1){
+                            pagetitle.textContent = '梦开始的地方';
+                        }else if(location.href.indexOf('tags')!=-1||location.href.indexOf('categories')!=-1){
+                            var a=location.href.substring(location.href.length-5,location.href.length-1);
+                            if(a==='tags'){
+                                pagetitle.textContent = '不积小流无以成江海';
+                            }else if(a==='ries'){
+                                pagetitle.textContent = '不积跬步无以至千里';
+                            }
+                        }
+                    </script>
                 
             </h5>
         </div>
@@ -186,49 +199,19 @@
 
 </header>
 
-<div class="container body-wrap fade">
-    
 
-    
+    <div class="container body-wrap fade">
+        
+            <h5 class="tag-tip"><i class="icon icon-lg icon-tags"></i>
+                目前共0个标签
+            </h5>
+            <div class="card-pool">
             
-            <h3 class="archive-separator">
-                <i class="icon icon-lg icon-folder-o"></i>&nbsp;&nbsp;
-                2018
-            </h3>
-            <div class="waterfall">
-    
+            
+            </div>
+        
 
-        <article class="archive-article" onclick="location.href='/2018/08/06/hello-world/'">
-    <div class="archive-article-date">
-      
-      <time class="my-post-time">
-        <i class="icon icon-lg icon-file-text-o"></i>
-        &nbsp;
-          08-06
-      </time>
-    </div>
-    <div class="archive-article-inner">
-      
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a href="/2018/08/06/hello-world/">Hello World</a>
-    </h3>
-  
-
-
-
-      
-    </div>
-  </article>
-
-    
-    </div>
-
-    
 </div>
-
         <footer class="footer">
     <div class="footer-content">
         <span class="power">
