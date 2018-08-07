@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head>
+    <meta charset="utf-8">
+    
+    <title>HTML基础 | sergiojune | 梦开始的地方</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="这个HTML基础笔记很早就想写的了，由于自己一直拖着，不想写，所以才留到现在写，现在我基本把HTML+css+JavaScript学完了，就等着我的笔记了。所以我决定今周一天写一篇笔记！！！好了，废话不多说了，写下今天所要写的笔记吧。 HTML是一种描述性的标记语言，并不是一种编程语言，想要装逼的小伙伴要记住了！！！ 基本语法为&amp;lt;标记符&amp;gt;中间这里填内容&amp;lt;/标识符&amp;gt;—&amp;gt;">
+<meta name="keywords" content="HTML">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML基础">
+<meta property="og:url" content="http://sergiojune.com/2017/11/28/HTML基础/index.html">
+<meta property="og:site_name" content="sergiojune | 梦开始的地方">
+<meta property="og:description" content="这个HTML基础笔记很早就想写的了，由于自己一直拖着，不想写，所以才留到现在写，现在我基本把HTML+css+JavaScript学完了，就等着我的笔记了。所以我决定今周一天写一篇笔记！！！好了，废话不多说了，写下今天所要写的笔记吧。 HTML是一种描述性的标记语言，并不是一种编程语言，想要装逼的小伙伴要记住了！！！ 基本语法为&amp;lt;标记符&amp;gt;中间这里填内容&amp;lt;/标识符&amp;gt;—&amp;gt;">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://oz39yfeyy.bkt.clouddn.com/GB3%5BFWA9COH_S0VM%7D%28PFQ0J.png">
+<meta property="og:image" content="http://oz39yfeyy.bkt.clouddn.com/98%280EC6Y%28WK%7D4QSU1J%7D8%604V.png">
+<meta property="og:image" content="http://oz39yfeyy.bkt.clouddn.com/M08F85U%5B42%5D%60U%5BZBSY0FTMJ.png">
+<meta property="og:image" content="http://oz39yfeyy.bkt.clouddn.com/%5DQYB141%29GG6OB%28SFC_G@N9U.png">
+<meta property="og:updated_time" content="2018-08-06T08:53:50.823Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML基础">
+<meta name="twitter:description" content="这个HTML基础笔记很早就想写的了，由于自己一直拖着，不想写，所以才留到现在写，现在我基本把HTML+css+JavaScript学完了，就等着我的笔记了。所以我决定今周一天写一篇笔记！！！好了，废话不多说了，写下今天所要写的笔记吧。 HTML是一种描述性的标记语言，并不是一种编程语言，想要装逼的小伙伴要记住了！！！ 基本语法为&amp;lt;标记符&amp;gt;中间这里填内容&amp;lt;/标识符&amp;gt;—&amp;gt;">
+<meta name="twitter:image" content="http://oz39yfeyy.bkt.clouddn.com/GB3%5BFWA9COH_S0VM%7D%28PFQ0J.png">
+    
+
+    
+        <link rel="alternate" href="/" title="sergiojune | 梦开始的地方" type="application/atom+xml" />
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome5/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/libs/font-awesome5/css/fa-brands.min.css">
+    <link rel="stylesheet" href="/libs/font-awesome5/css/fa-solid.min.css">
+    <link rel="stylesheet" href="/libs/open-sans/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="container">
+        <header id="header">
+    <div id="header-main" class="header-inner">
+        <div class="outer">
+            <a href="/" id="logo">
+                <i class="logo"></i>
+                <span class="site-title">sergiojune | 梦开始的地方</span>
+            </a>
+            <nav id="main-nav">
+                
+                    <a class="main-nav-link" href="/.">Home</a>
+                
+                    <a class="main-nav-link" href="/归档">Archives</a>
+                
+                    <a class="main-nav-link" href="/分类">Categories</a>
+                
+                    <a class="main-nav-link" href="/标签">Tags</a>
+                
+                    <a class="main-nav-link" href="/关于">About</a>
+                
+            </nav>
+            
+                
+                <nav id="sub-nav">
+                    <div class="profile" id="profile-nav">
+                        <a id="profile-anchor" href="javascript:;">
+                            <img class="avatar" src="/css/images/avatar.jpg" />
+                            <i class="fas fa-caret-down"></i>
+                        </a>
+                    </div>
+                </nav>
+            
+            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="想要查找什么..." />
+            <span class="ins-close ins-selectable"><i class="fas fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+        </div>
+    </div>
+    <div id="main-nav-mobile" class="header-sub header-inner">
+        <table class="menu outer">
+            <tr>
+                
+                    <td><a class="main-nav-link" href="/.">Home</a></td>
+                
+                    <td><a class="main-nav-link" href="/归档">Archives</a></td>
+                
+                    <td><a class="main-nav-link" href="/分类">Categories</a></td>
+                
+                    <td><a class="main-nav-link" href="/标签">Tags</a></td>
+                
+                    <td><a class="main-nav-link" href="/关于">About</a></td>
+                
+                <td>
+                    
+    <div class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="搜索" />
+    </div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+</header>
+
+        <div class="outer">
+            
+                
+
+<aside id="profile" class="profile-fixed">
+    <div class="inner profile-inner">
+        <div class="base-info profile-block">
+            <img id="avatar" src="/css/images/avatar.jpg" />
+            <h2 id="name">sergiojune</h2>
+            <h3 id="title">我本微末凡尘，却也心向天空</h3>
+            <span id="location"><i class="fas fa-map-marker-alt" style="padding-right: 5px"></i>GuangZhou, China</span>
+            <a id="follow" target="_blank" href="https://github.com/SergioJune">关注我</a>
+        </div>
+        <div class="article-info profile-block">
+            <div class="article-info-block">
+                26
+                <span>文章</span>
+            </div>
+            <div class="article-info-block">
+                10
+                <span>标签</span>
+            </div>
+        </div>
+        
+        <div class="profile-block social-links">
+            <table>
+                <tr>
+                    
+                    
+                    <td>
+                        <a href="https://github.com/SergioJune" target="_blank" title="github" class=tooltip>
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://www.zhihu.com/people/ying-xing-69-8/activities" target="_blank" title="zhihu" class=tooltip>
+                            <i class="fab fa-zhihu"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="https://juejin.im/user/5a9fc4506fb9a028d140a761" target="_blank" title="jvejin" class=tooltip>
+                            <i class="fab fa-jvejin"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="dribbble" class=tooltip>
+                            <i class="fab fa-dribbble"></i>
+                        </a>
+                    </td>
+                    
+                    <td>
+                        <a href="/" target="_blank" title="rss" class=tooltip>
+                            <i class="fab fa-rss"></i>
+                        </a>
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</aside>
+
+            
+            <section id="main"><article id="post-HTML基础" class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+            HTML基础
+        </h1>
+    
+
+                
+                    <div class="article-meta">
+                        
+    <div class="article-date">
+        <i class="fas fa-calendar-alt"></i>
+        <a href="/2017/11/28/HTML基础/">
+            <time datetime="2017-11-27T21:17:44.000Z" itemprop="datePublished">2017-11-27</time>
+        </a>
+    </div>
+
+
+                        
+    <div class="article-category">
+    	<i class="fas fa-folder"></i>
+        <a class="article-category-link" href="/categories/前端/">前端</a>
+    </div>
+
+                        
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/HTML/">HTML</a>
+    </div>
+
+                    </div>
+                
+            </header>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+        
+            
+            <h4 id="这个HTML基础笔记很早就想写的了，由于自己一直拖着，不想写，所以才留到现在写，"><a href="#这个HTML基础笔记很早就想写的了，由于自己一直拖着，不想写，所以才留到现在写，" class="headerlink" title="这个HTML基础笔记很早就想写的了，由于自己一直拖着，不想写，所以才留到现在写，"></a>这个HTML基础笔记很早就想写的了，由于自己一直拖着，不想写，所以才留到现在写，</h4><h4 id="现在我基本把HTML-css-JavaScript学完了，就等着我的笔记了。"><a href="#现在我基本把HTML-css-JavaScript学完了，就等着我的笔记了。" class="headerlink" title="现在我基本把HTML+css+JavaScript学完了，就等着我的笔记了。"></a>现在我基本把HTML+css+JavaScript学完了，就等着我的笔记了。</h4><h4 id="所以我决定今周一天写一篇笔记！！！"><a href="#所以我决定今周一天写一篇笔记！！！" class="headerlink" title="所以我决定今周一天写一篇笔记！！！"></a>所以我决定今周一天写一篇笔记！！！</h4><h4 id="好了，废话不多说了，写下今天所要写的笔记吧。"><a href="#好了，废话不多说了，写下今天所要写的笔记吧。" class="headerlink" title="好了，废话不多说了，写下今天所要写的笔记吧。"></a>好了，废话不多说了，写下今天所要写的笔记吧。</h4><ul>
+<li>HTML是一种描述性的标记语言，并不是一种编程语言，想要装逼的小伙伴要记住了！！！</li>
+<li><p>基本语法为&lt;标记符&gt;中间这里填内容&lt;/标识符&gt;—&gt;前面的标识符为开始标志，后面的标识符为结束标志</p>
+<pre><code>如 &lt;p&gt;基本语法&lt;/p&gt;
+</code></pre></li>
+<li>记住网页源代码的效果并不是网页的最终效果</li>
+<li><p>html的文档结构如下：  </p>
+<ol>
+<li>html标签：是个双标记，就是有开始和结束标志。它标识网页的开始与结束，所有的HTML元素都要放在这个标记里面</li>
+<li>head标签：双标记，标示网页文件的头部信息，如标题和搜索引擎等等</li>
+<li>title标签：双标记，标识网页的标题，放在head标签里面</li>
+<li>body标签：双标记，网页的主体部分，网页里显示的东西都放在里面</li>
+</ol>
+<p>简单网页就是这样组成的</p>
+<pre><code>  &lt;!DOCTYPE html&gt;&lt;!--这个用于声明文档类型，写在网页的第一行--&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;html网页&lt;/title&gt;
+        &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+
+    &lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre></li>
+<li><p>meta标记：用于定义文件信息，便于搜索引擎查找，放在<head>标记内。可以设置关键字（keywords），描述（description）和作者（author）等，格式如下</head></p>
+<pre><code>1.&lt;meta name=&quot;keywords&quot; content=&quot;关键字&quot;/&gt;&lt;!--这个是设置关键字--&gt;
+2.&lt;meta name=&quot;description&quot; content=&quot;描述内容&quot;/&gt;&lt;!--这个是设置描述内容--&gt;
+3.&lt;meta name=&quot;author&quot; content=&quot;SergioJune&quot;/&gt;&lt;!--这个是设置作者--&gt;
+4.&lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html,charset=utf-8&quot;/&gt;&lt;!--这个是设置网站的编码方式--&gt;
+5.&lt;meta http-equiv=&quot;1refresh&quot; content=&quot;5,URL=跳转地址&quot;/&gt;&lt;!--这个是设置网页自动跳转，由于网页问题，我防止他自动跳转，我在前面的值加了个1，要的时候记得去掉  content的第一个值为开始自动跳转的等待时间，单位为秒--&gt;
+</code></pre></li>
+<li><p>html的注释：</p>
+<pre><code>&lt;!--注释内容--&gt;
+</code></pre></li>
+<li><p>pre标记：双标记，保留文本的原来格式，即文本格式原来是怎样，在网页输出也是怎样</p>
+</li>
+<li><p>在网页中输出特殊字符：（只是常用的几个，其他的请自行查文档）</p>
+<pre><code>  &amp;nbsp;&lt;!--表示空格--&gt;
+&amp;reg;&lt;!--表示商标--&gt;
+&amp;lt;&lt;!--表示左边尖括号--&gt;
+&amp;rt;&lt;!--表示右边尖括号--&gt;
+</code></pre></li>
+<li><p>HTML的列表：分为三种列表，分别是有序列表，无序列表和自定义列表，这三种均放在body标签内<br>   1.无序列表：由<strong> ul和li标记组成 </strong>，下面为格式和图片</p>
+<pre><code>&lt;ul type=&quot;circle&quot;&gt;&lt;!--无序列表--&gt;
+          &lt;li&gt;&lt;!--每一个小项--&gt;
+           把C语言给学完，
+          &lt;/li&gt;
+          &lt;li &gt;
+           有空也需要把Java复习一下，要不全忘记了
+          &lt;/li&gt;
+          &lt;li&gt;
+           每天学习两个英语音标（英语渣渣）
+          &lt;/li&gt;
+          &lt;li type=&quot;square&quot;&gt;&lt;!--这个单独设置了样式，所以显示图标为正方形--&gt;
+           有空的话可以把python学完
+           &lt;/li&gt;
+   &lt;/ul&gt;
+</code></pre><p>   <img src="http://oz39yfeyy.bkt.clouddn.com/GB3%5BFWA9COH_S0VM%7D%28PFQ0J.png" alt="无序列表"></p>
+<p>  2.有序列表：由 <strong>o l和li标签组成 </strong>，下面为格式和图片</p>
+<pre><code>    &lt;ol type=&quot;A&quot; start=&quot;26&quot;&gt;&lt;!--有序列表,里面有样式设置，type属性是指按什么排序，start属性是从那个开始--&gt;
+             &lt;li&gt;&lt;!~--这个是每个小项--&gt;
+              把C语言给学完，
+             &lt;/li&gt;
+             &lt;li &gt;
+              有空也需要把Java复习一下，要不全忘记了
+             &lt;/li&gt;
+             &lt;li&gt;
+              每天学习两个英语音标（英语渣渣）
+             &lt;/li&gt;
+             &lt;li &gt;
+              有空的话可以把python学完
+              &lt;/li&gt;
+&lt;/ol&gt;
+</code></pre><p>   <img src="http://oz39yfeyy.bkt.clouddn.com/98%280EC6Y%28WK%7D4QSU1J%7D8%604V.png" alt="有序列表"></p>
+<p>  3.自定义列表：有 <strong> dl，dt和dd组成 </strong>，而且这三个标签需要组合起来使用才有效</p>
+<pre><code>    &lt;dl&gt;&lt;!--自定义列表--&gt;
+          &lt;dt&gt;&lt;!--列表的主项--&gt;
+           数码
+          &lt;/dt&gt;
+            &lt;dd&gt;&lt;!--该列表的仔细分类--&gt;
+               单反相机
+               &lt;/dd&gt;
+            &lt;dd&gt;
+               CPU
+            &lt;/dd&gt;
+            &lt;dd&gt;
+               笔记本 
+            &lt;/dd&gt;
+          &lt;dt&gt;
+           手机
+          &lt;/dt&gt;
+            &lt;dd&gt;
+               小米
+            &lt;/dd&gt;
+            &lt;dd&gt;
+               苹果
+            &lt;/dd&gt;
+            &lt;dd&gt;
+               魅族 
+            &lt;/dd&gt;
+&lt;/dl&gt;
+</code></pre><p>   <img src="http://oz39yfeyy.bkt.clouddn.com/M08F85U%5B42%5D%60U%5BZBSY0FTMJ.png" alt="自定义列表"></p>
+</li>
+<li><p>img标签：单标记，属性有src（必写），alt，vspace，align等属性，下面展示格式加效果图</p>
+<pre><code>   &lt;img src=&quot;img/1.jpg&quot; align=&quot;left&quot; hspace=&quot;100&quot; height=&quot;180&quot; width=&quot;180&quot;&gt;
+&lt;!--src是图片的url地址值，alt是文字，当图片无法加载时显示的文字--&gt;
+&lt;!--hspace是距离图片的水平像素，width和height是图片的宽和高--&gt;
+</code></pre><p> <img src="http://oz39yfeyy.bkt.clouddn.com/%5DQYB141%29GG6OB%28SFC_G@N9U.png" alt="图片展示"></p>
+</li>
+<li><p>a标签：超链接标签，双标记，<br>  1.href属性;需要跳转的链接，可以是内部的，也可以是外部的，当该值是<strong> # </strong>时，表示的是空链接，就是点击无效果，用来调试的<br>  2.target属性：表示链接窗口的属性，有_self（在本窗口跳转），_blank（在新窗口跳转），_top，_parent属性<br>  3.title属性：链接提示性文字，当鼠标悬停时可以看到的文字<br>  4.name属性：给链接命名，定义锚时有用<br>  5.锚的用法和定义;使用命名锚记可以在文档中设置标记，这些标记通常放在文档的特定主题处或顶部。然后可以创建到这些命名锚记的链接，这些链接可快速将访问者带到指定位置。<br>  <strong> 创建到命名锚记的链接的过程分为两步。首先，创建命名锚记，然后创建到该命名锚记的链接。 </strong>下面给出代码展示</p>
+<pre><code>   &lt;a href=&quot;#py2&quot;&gt;python进阶 &lt;/a&gt;&lt;!--这个就是锚导航，点击后在本网页跳转，记得格式是 #锚名 --&gt;
+&lt;a href=&quot;http://coding.imooc.com/class/136.html&quot; target=&quot;_blank&quot; title=&quot;点击跳转到相关课程&quot; name=&quot;py3&quot;&gt;&lt;/a&gt;&lt;!--这个是命名锚记，就是上面点击后跳转的地方--&gt;
+</code></pre><p> 6.它还可以发送邮件，写什么反馈邮件时可以用到，格式为：</p>
+<pre><code>&lt;a href=&quot;mailto:邮件地址&quot;&gt;&lt;/a&gt;
+</code></pre><p> 7.也可以下载文件，格式为：</p>
+<pre><code>&lt;a href=&quot;文件名&quot;&gt;&lt;/a&gt;
+</code></pre></li>
+</ul>
+<h3 id="写了这么点东西用了我几个小时，累啊，感觉写的东西都是很基础的东西，第一次写，还不太会，希望能体谅下，以后慢慢进步！"><a href="#写了这么点东西用了我几个小时，累啊，感觉写的东西都是很基础的东西，第一次写，还不太会，希望能体谅下，以后慢慢进步！" class="headerlink" title="写了这么点东西用了我几个小时，累啊，感觉写的东西都是很基础的东西，第一次写，还不太会，希望能体谅下，以后慢慢进步！"></a>写了这么点东西用了我几个小时，累啊，感觉写的东西都是很基础的东西，第一次写，还不太会，希望能体谅下，以后慢慢进步！</h3><h3 id="加油，明天继续！！！"><a href="#加油，明天继续！！！" class="headerlink" title="加油，明天继续！！！"></a>加油，明天继续！！！</h3>
+        
+        </div>
+        <footer class="article-footer">
+            <div class="share-container">
+
+
+
+</div>
+
+    <a data-url="http://sergiojune.com/2017/11/28/HTML基础/" data-id="cjkizfkhz0006rsun8cppxvsj" class="article-share-link"><i class="fas fa-share"></i>分享到</a>
+<script>
+    (function ($) {
+        // Prevent duplicate binding
+        if (typeof(__SHARE_BUTTON_BINDED__) === 'undefined' || !__SHARE_BUTTON_BINDED__) {
+            __SHARE_BUTTON_BINDED__ = true;
+        } else {
+            return;
+        }
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fab fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fab fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fab fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fab fa-google article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+            
+    
+
+        </footer>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/11/30/html表格和表单/" id="article-nav-newer" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">上一篇</strong>
+            <div class="article-nav-title">
+                
+                    html表格和表单
+                
+            </div>
+        </a>
+    
+    
+        <a href="/2017/11/08/学习HTML的第一天 /" id="article-nav-older" class="article-nav-link-wrap">
+            <strong class="article-nav-caption">下一篇</strong>
+            <div class="article-nav-title">学习html第一天</div>
+        </a>
+    
+</nav>
+
+
+    
+</article>
+
+
+    
+    
+
+</section>
+            
+                
+<aside id="sidebar">
+   
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">最新文章</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/08/07/python3.x爬取网易云音乐评论/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/python/">python</a></p>
+                            <p class="item-title"><a href="/2018/08/07/python3.x爬取网易云音乐评论/" class="title">利用python爬取网易云音乐评论，并把数据存入mysql</a></p>
+                            <p class="item-date"><time datetime="2018-08-07T00:43:42.113Z" itemprop="datePublished">2018-08-07</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/08/07/hexo搭建的博客提交文章本地预览成功但github没有显示解决方法/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/blog/">blog</a></p>
+                            <p class="item-title"><a href="/2018/08/07/hexo搭建的博客提交文章本地预览成功但github没有显示解决方法/" class="title">hexo搭建的博客提交文章本地预览成功但github没有显示解决方法</a></p>
+                            <p class="item-date"><time datetime="2018-08-07T00:43:42.059Z" itemprop="datePublished">2018-08-07</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/08/07/学习用python操作mysql/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/python/">python</a><i class="fas fa-angle-right"></i><a class="article-category-link" href="/categories/python/数据库/">数据库</a></p>
+                            <p class="item-title"><a href="/2018/08/07/学习用python操作mysql/" class="title">学习用python操作mysql</a></p>
+                            <p class="item-date"><time datetime="2018-08-07T00:43:42.012Z" itemprop="datePublished">2018-08-07</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/08/07/我爬取了37000条球迷评论，知道了这场比赛的重要信息/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/python/">python</a></p>
+                            <p class="item-title"><a href="/2018/08/07/我爬取了37000条球迷评论，知道了这场比赛的重要信息/" class="title">我爬取了37000条球迷评论，知道了这场比赛的重要信息</a></p>
+                            <p class="item-date"><time datetime="2018-08-07T00:43:41.976Z" itemprop="datePublished">2018-08-07</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2018/08/07/谈谈如何抓取ajax动态网站/" class="thumbnail">
+    
+    
+        <span class="thumbnail-image thumbnail-none"></span>
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/python/">python</a></p>
+                            <p class="item-title"><a href="/2018/08/07/谈谈如何抓取ajax动态网站/" class="title">谈谈如何抓取ajax动态网站</a></p>
+                            <p class="item-date"><time datetime="2018-08-07T00:43:41.950Z" itemprop="datePublished">2018-08-07</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">分类</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/android/">android</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">17</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/python/数据库/">数据库</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人随想/">个人随想</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/前端/">前端</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/总结/">总结</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/随想/">随想</a><span class="category-list-count">1</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">归档</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">八月 2018</a><span class="archive-list-count">19</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">4</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTML/">HTML</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hard/">hard</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requests/">requests</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/requestst/">requestst</a><span class="tag-list-count">11</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/run/">run</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/urllib/">urllib</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/坑/">坑</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/正则表达式/">正则表达式</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/爬虫/">爬虫</a><span class="tag-list-count">16</span></li></ul>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">标签云</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/HTML/" style="font-size: 15px;">HTML</a> <a href="/tags/hard/" style="font-size: 10px;">hard</a> <a href="/tags/mysql/" style="font-size: 15px;">mysql</a> <a href="/tags/requests/" style="font-size: 12.5px;">requests</a> <a href="/tags/requestst/" style="font-size: 17.5px;">requestst</a> <a href="/tags/run/" style="font-size: 10px;">run</a> <a href="/tags/urllib/" style="font-size: 10px;">urllib</a> <a href="/tags/坑/" style="font-size: 10px;">坑</a> <a href="/tags/正则表达式/" style="font-size: 15px;">正则表达式</a> <a href="/tags/爬虫/" style="font-size: 20px;">爬虫</a>
+        </div>
+    </div>
+
+    
+        
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">链接</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+    
+    <div id="toTop" class="fas fa-angle-up"></div>
+</aside>
+
+            
+        </div>
+        <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2018 sergiojune<br>
+            Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>. Theme by <a href="http://github.com/ppoffice">PPOffice</a>
+        </div>
+    </div>
+</footer>
+        
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
