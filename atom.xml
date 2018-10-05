@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sergiojune.com/"/>
-  <updated>2018-09-28T16:32:22.224Z</updated>
+  <updated>2018-10-04T15:56:38.229Z</updated>
   <id>http://sergiojune.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数据结构之线性栈的理解及实现</title>
+    <link href="http://sergiojune.com/2018/10/04/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E7%BA%BF%E6%80%A7%E6%A0%88%E7%9A%84%E7%90%86%E8%A7%A3%E5%8F%8A%E5%AE%9E%E7%8E%B0/"/>
+    <id>http://sergiojune.com/2018/10/04/数据结构之线性栈的理解及实现/</id>
+    <published>2018-10-04T15:55:03.088Z</published>
+    <updated>2018-10-04T15:56:38.229Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="1-栈的理解"><a href="#1-栈的理解" class="headerlink" title="1.栈的理解"></a>1.栈的理解</h4><p>栈是一种只允许从一端插入或者删除数据的结构，就比如你向弹匣装子弹，只能在头部装，在打枪的时候，也是在头部的子弹先发射出去，简单地说就是后进先出。</p><p>栈的插入操作叫做进栈，也称压栈、入栈。<br>栈的删除操作叫做出栈，也叫弹栈。</p><h4 id="2-栈的应用"><a href="#2-栈的应用" class="headerlink" title="2.栈的应用"></a>2.栈的应用</h4><p>我们在浏览网页的时候，都会有个后退的按钮，这个就是用栈来实现的，还有就是大部分软件的可撤销操作，也都是用栈实现的。</p><h4 id="3-栈的结构需要实现的方法"><a href="#3-栈的结构需要实现的方法" class="headerlink" title="3.栈的结构需要实现的方法"></a>3.栈的结构需要实现的方法</h4><p>结构：<br>  需要声明栈的容量以及当前栈的长度（就是下一个元素插入的位置或者当前栈顶的元素位置）</p><p>方法：</p><ol><li>InitStack(*s):  初始化操作，建立一个空栈。</li><li>DestoryStack(*s):  若栈存在，就销毁栈</li><li>ClearStaack(*s):  清空栈</li><li>StackEmpty(*s):  判断栈是否为空，若为空，返回true</li><li>GetTop(*s, e): 若栈顶存在，就用 e 来返回栈定元素</li><li>Push(*s， e): 向栈顶插入元素，并用 e 返回栈顶元素</li><li>Pop(*s, e): 若站栈顶存在，就删除栈顶元素并赋值给 e 返回</li><li>StackLength(): 获取栈的长度</li></ol><h4 id="4-用-c-语言实现线性栈"><a href="#4-用-c-语言实现线性栈" class="headerlink" title="4.用 c 语言实现线性栈"></a>4.用 c 语言实现线性栈</h4><p>有空补上</p><h4 id="5-用-Java-语言实现线性栈"><a href="#5-用-Java-语言实现线性栈" class="headerlink" title="5. 用 Java 语言实现线性栈"></a>5. 用 Java 语言实现线性栈</h4><p>有空补上</p><h4 id="6-两栈共享存储空间"><a href="#6-两栈共享存储空间" class="headerlink" title="6. 两栈共享存储空间"></a>6. 两栈共享存储空间</h4><h5 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h5><p>使用两个栈来对相同类型的数据来进行存储，就是有个顶部和尾部。</p><p>若只是使用一个栈来使用的话，事先确定栈的容量是非常重要的，因为当容量小了，就需要不断扩大容量，或者容量大了，就会浪费一段存储空间，这都是很麻烦的。但是使用两个栈就可以做到最大限度地利用事先开辟的存储空间。</p><p>当两个栈需要操作相反的关系的时候就可以考虑这个，就比如总有人赚钱和赔钱，那就一边负责增加元素，另一边负责删除元素。</p><h5 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h5><p>两栈可以理解为一个长度为 n 的线性表从任意位置切开成两段空间，这样子就会有数组的首尾端都是两个栈的栈底。</p><p>左边的栈为空的时候，就是栈顶为 -1(栈顶的元素位置)，右边的栈为空的时候就是栈顶元素为 n 的时候。</p><p>所以当左边栈满的时候，就是栈顶为 n-1，而右边栈为空就是栈顶为 n，而右边栈满的时候就是栈顶为 0，左边栈为空就是栈顶为 -1。所以当两个碰面的时候，也就是两个栈满的时候，就是两个栈顶的位置相差一的时候，即 leftTop + 1 = rightTop。</p><p>理解上面这个就好实现了，栈需要记录左右两边的栈顶的位置，所以栈的结构需要改变，需要有栈初始化两个栈的容量的总量，还必须声明左右两边栈顶的位置。 </p><h5 id="两个方法实现"><a href="#两个方法实现" class="headerlink" title="两个方法实现"></a>两个方法实现</h5><ol><li>push()：这个需要加入一个栈号参数来判断需要插入那个栈，同时插入时需要判断栈是否满</li><li>pop()：也需要加一个栈号参数来判断删除哪边栈的元素，删除时需要判断栈是否为空。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;1-栈的理解&quot;&gt;&lt;a href=&quot;#1-栈的理解&quot; class=&quot;headerlink&quot; title=&quot;1.栈的理解&quot;&gt;&lt;/a&gt;1.栈的理解&lt;/h4&gt;&lt;p&gt;栈是一种只允许从一端插入或者删除数据的结构，就比如你向弹匣装子弹，只能在头部装，在打枪的时候，也是在头部的子
+      
+    
+    </summary>
+    
+      <category term="数据结构" scheme="http://sergiojune.com/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+    
+      <category term="栈" scheme="http://sergiojune.com/tags/%E6%A0%88/"/>
+    
+  </entry>
   
   <entry>
     <title>c语言提高第一天总结</title>
