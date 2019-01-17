@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sergiojune.com/"/>
-  <updated>2019-01-14T08:11:19.736Z</updated>
+  <updated>2019-01-17T09:50:33.386Z</updated>
   <id>http://sergiojune.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>为了一窥国足输韩国之后人们的评论，我爬了懂球帝APP</title>
+    <link href="http://sergiojune.com/2019/01/17/%E4%B8%BA%E4%BA%86%E4%B8%80%E7%AA%A5%E5%9B%BD%E8%B6%B3%E8%BE%93%E9%9F%A9%E5%9B%BD%E4%B9%8B%E5%90%8E%E4%BA%BA%E4%BB%AC%E7%9A%84%E8%AF%84%E8%AE%BA%EF%BC%8C%E6%88%91%E7%88%AC%E4%BA%86%E6%87%82%E7%90%83%E5%B8%9DAPP/"/>
+    <id>http://sergiojune.com/2019/01/17/为了一窥国足输韩国之后人们的评论，我爬了懂球帝APP/</id>
+    <published>2019-01-17T09:45:38.189Z</published>
+    <updated>2019-01-17T09:50:33.386Z</updated>
+    
+    <content type="html"><![CDATA[<p>如果你是个足球迷的话，估计或多或少都会看一下昨晚中国踢韩国的比赛，因为不管他们踢得怎样，我们还是深爱着他们，那句话说得好，“国足虐我千百遍，我待国足如初恋”。更何况他们两场都踢赢了，所以面对第三场实力有点强的韩国队也是希望能赢的，毕竟我们也在十二强赛上赢过他们！  </p><p>如果你不是个足球迷，但你也可以看看，可以学习下如何去抓APP的数据。好了，废话不多说，开始抓取！</p><h3 id="1-抓包分析请求"><a href="#1-抓包分析请求" class="headerlink" title="1.抓包分析请求"></a>1.抓包分析请求</h3><p>手机抓包我们可以用 Fiddler 软件来抓取，如果不懂怎样抓的话，可以看看这篇文章<a href="http://mp.weixin.qq.com/s?__biz=MzU0NzY0NzQyNw==&amp;mid=2247484504&amp;idx=1&amp;sn=576c84039bb066ab91a28f2c9ef48b21&amp;chksm=fb4a7ef4cc3df7e215f1ada6af91969216a738ba03b4d9e94e371a6b3d0eededdbe21c50a879&amp;scene=21#wechat_redirect" target="_blank" rel="noopener">抓包软件&nbsp;Fiddler&nbsp;了解一下？</a></p><p>配置好之后，开始抓包。</p><p>首先找到需要爬取的文章</p><p><img src="https://user-gold-cdn.xitu.io/2019/1/17/1685b2c60f999c0d?w=1080&amp;h=2248&amp;f=jpeg&amp;s=174924" alt=""></p><p>懂球帝app截图</p><p>文章链接为：<a href="https://m.dongqiudi.com/article_share/896482.html" target="_blank" rel="noopener">https://m.dongqiudi.com/article_share/896482.html</a></p><p>在配置好抓包之后，点击下方的评论，可以看到</p><p><img src="https://user-gold-cdn.xitu.io/2019/1/17/1685b2c60fbba7dc?w=1080&amp;h=1920&amp;f=jpeg&amp;s=206923" alt=""></p><p>评论截图</p><p><img src="https://user-gold-cdn.xitu.io/2019/1/17/1685b2c60fc79637?w=884&amp;h=787&amp;f=jpeg&amp;s=127802" alt=""></p><p>抓包截图</p><p>很容易就找到文章评论的请求，就是下面这个  </p><p><img src="https://user-gold-cdn.xitu.io/2019/1/17/1685b2c61079f531?w=1080&amp;h=866&amp;f=jpeg&amp;s=154457" alt=""></p><p>可以看到请求的链接为：<a href="https://api.dongqiudi.com/v2/article/896482/comment?sort=down&amp;version=177" target="_blank" rel="noopener">https://api.dongqiudi.com/v2/article/896482/comment?sort=down&amp;version=177</a> ，</p><p>请求方法为GET，接下来就好办了，我们再看看滑下去查看更多的评论的请求。</p><p><img src="https://user-gold-cdn.xitu.io/2019/1/17/1685b2c611553783?w=1078&amp;h=486&amp;f=jpeg&amp;s=30488" alt=""></p><p><img src="https://user-gold-cdn.xitu.io/2019/1/17/1685b2c6136f8295?w=1078&amp;h=486&amp;f=jpeg&amp;s=30517" alt="">  </p><p>可以看到，向下翻页多了两个参数，不过容易知道，next 参数就是一个时间戳，而 pn 参数就是页数吧，从 0 开始的。  </p><p>但是怎样判断所有评论已经爬完了呢？我们可以看看数据的详情，下面将 json 数据格式化，在下图可以看到在 data 里面有下一页的数据，那这就容易了，哈哈</p><p><img src="https://user-gold-cdn.xitu.io/2019/1/17/1685b2c62d36d6f6?w=918&amp;h=687&amp;f=jpeg&amp;s=79617" alt=""></p><p>分析了，接下来就是代码部分了。</p><h3 id="2-代码部分"><a href="#2-代码部分" class="headerlink" title="2.代码部分"></a>2.代码部分</h3><p><img src="https://user-gold-cdn.xitu.io/2019/1/17/1685b2c62e091fc0?w=1080&amp;h=523&amp;f=jpeg&amp;s=31114" alt=""></p><p>这是主体部分，先从第一个评论链接中爬取评论以及找出下一页的评论地址进而继续爬取。这里是把数据库存进 mongodb 中。</p><p><img src="https://user-gold-cdn.xitu.io/2019/1/17/1685b2c63029a93e?w=1080&amp;h=402&amp;f=jpeg&amp;s=30989" alt=""></p><p>主要的爬取逻辑，可以看出来是比较简单的，因为没有涉及到什么加密参数之类的，但是有一个问题，每一次进行请求的时候，有时候是会返回带有相同的评论的，所以我们也需要在数据库简单地进行去重。</p><p>下面是入库和去重的代码部分</p><p><img src="https://user-gold-cdn.xitu.io/2019/1/17/1685b2c631e19105?w=869&amp;h=447&amp;f=jpeg&amp;s=33556" alt=""></p><p>剩下的就没有了。</p><h3 id="3-查看所得的数据"><a href="#3-查看所得的数据" class="headerlink" title="3.查看所得的数据"></a>3.查看所得的数据</h3><p>由于数据分析还不熟悉，所以暂时只制作词云图。</p><p><img src="https://user-gold-cdn.xitu.io/2019/1/17/1685b2c636dae779?w=1058&amp;h=496&amp;f=jpeg&amp;s=47380" alt=""></p><p>需要先将数据写到文本上</p><p>词云图是：  </p><p><img src="https://user-gold-cdn.xitu.io/2019/1/17/1685b2c638f18834?w=701&amp;h=556&amp;f=jpeg&amp;s=24116" alt=""></p><p>可以看出，昨晚国足输一场，也被很多人喷了，但是还是有很多人是一直支持的，永远都为国足加油，里面也说到了，中国和韩国是有一定差距的，而且还有点大，输了也正常不过了，没必要喷，再说我觉得昨晚的比赛已经比第一场的比赛好很多(第二次没看)，还是有进步的，我对国足未来淘汰赛也是充满期望的，我相信能走得更远！</p><p>下一场 踢泰国， 20号，有人看吗？</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;如果你是个足球迷的话，估计或多或少都会看一下昨晚中国踢韩国的比赛，因为不管他们踢得怎样，我们还是深爱着他们，那句话说得好，“国足虐我千百遍，我待国足如初恋”。更何况他们两场都踢赢了，所以面对第三场实力有点强的韩国队也是希望能赢的，毕竟我们也在十二强赛上赢过他们！  &lt;/p&gt;
+      
+    
+    </summary>
+    
+      <category term="python" scheme="http://sergiojune.com/categories/python/"/>
+    
+    
+      <category term="爬虫" scheme="http://sergiojune.com/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="足球" scheme="http://sergiojune.com/tags/%E8%B6%B3%E7%90%83/"/>
+    
+  </entry>
   
   <entry>
     <title>学习用python操作mysql</title>
