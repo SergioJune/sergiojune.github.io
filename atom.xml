@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sergiojune.com/"/>
-  <updated>2019-01-20T06:19:15.957Z</updated>
+  <updated>2019-01-20T08:00:08.477Z</updated>
   <id>http://sergiojune.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>安装docker及其简单操作</title>
+    <link href="http://sergiojune.com/2019/01/20/%E5%AE%89%E8%A3%85docker%E5%8F%8A%E5%85%B6%E7%AE%80%E5%8D%95%E7%9A%84%E6%93%8D%E4%BD%9C/"/>
+    <id>http://sergiojune.com/2019/01/20/安装docker及其简单的操作/</id>
+    <published>2019-01-20T07:59:03.407Z</published>
+    <updated>2019-01-20T08:00:08.477Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="1-下载地址"><a href="#1-下载地址" class="headerlink" title="1.下载地址"></a>1.下载地址</h3><p><a href="https://download.docker.com/win/stable/DockerToolbox.exe" target="_blank" rel="noopener">https://download.docker.com/win/stable/DockerToolbox.exe</a></p><p>点击上面链接直接就可以下载了，下载之后默认安装就可以了。</p><h3 id="2-打开Docker-Quickstart-Terminal"><a href="#2-打开Docker-Quickstart-Terminal" class="headerlink" title="2.打开Docker Quickstart Terminal"></a>2.打开Docker Quickstart Terminal</h3><p><img src="https://user-gold-cdn.xitu.io/2019/1/20/1686a36fafbf71ef?w=102&amp;h=112&amp;f=png&amp;s=23075" alt=""></p><p>就是打开这个软件。</p><p><strong>注意：如果你之前安装了git的话，里面的目标需要自己手动配置下，需要手动找到给git的安装地址给更改</strong></p><p><img src="https://user-gold-cdn.xitu.io/2019/1/20/1686a38d8b3edd26?w=572&amp;h=798&amp;f=png&amp;s=45341" alt=""></p><p>自己手动改下前面git的安装地址即可。</p><p>还有一个坑：就是点击之后，会下载一个东西：<strong>boot2docker.iso</strong>，这个需要科学上网。或者你可以直接在你安装的docker的地址复制这个文件到它指定的目录文件也可以。</p><p><img src="https://user-gold-cdn.xitu.io/2019/1/20/1686a3adb14db3d2?w=1193&amp;h=141&amp;f=png&amp;s=34153" alt=""></p><p><img src="https://user-gold-cdn.xitu.io/2019/1/20/1686a3b1c7038aa6?w=872&amp;h=480&amp;f=png&amp;s=55189" alt=""></p><p>把下面的文件复制到上上图中的指定地址也可以的。</p><p>复制之后再打开就可以了。<br><img src="https://user-gold-cdn.xitu.io/2019/1/20/1686a3e66d5b4427?w=1223&amp;h=639&amp;f=png&amp;s=36675" alt=""></p><h3 id="3-使用docker"><a href="#3-使用docker" class="headerlink" title="3.使用docker"></a>3.使用docker</h3><p>1）查看版本<br><code>docker version</code></p><p><img src="https://user-gold-cdn.xitu.io/2019/1/20/1686a3ffbf3921dd?w=1223&amp;h=639&amp;f=png&amp;s=88664" alt=""></p><p>2)运行 hello world<br><code>docker run hello-world</code></p><p><img src="https://user-gold-cdn.xitu.io/2019/1/20/1686a422de4b3378?w=1223&amp;h=639&amp;f=png&amp;s=95685" alt=""><br>这个会先在本地上查找有没有 hello-world 这个镜像，没有的话，就会在 docker hub 上下载到本地，然后在运行这个镜像。</p><p>我们还可以根据上面的提示运行一个 ubuntu 系统。<br><code>docker run -it ubuntu bash</code></p><p><img src="https://user-gold-cdn.xitu.io/2019/1/20/1686a448ce6f6283?w=1223&amp;h=639&amp;f=png&amp;s=71084" alt=""><br>这样子我们就进入这个 Ubuntu 系统内部了</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;1-下载地址&quot;&gt;&lt;a href=&quot;#1-下载地址&quot; class=&quot;headerlink&quot; title=&quot;1.下载地址&quot;&gt;&lt;/a&gt;1.下载地址&lt;/h3&gt;&lt;p&gt;&lt;a href=&quot;https://download.docker.com/win/stable/Docker
+      
+    
+    </summary>
+    
+      <category term="docker" scheme="http://sergiojune.com/categories/docker/"/>
+    
+    
+      <category term="docker" scheme="http://sergiojune.com/tags/docker/"/>
+    
+  </entry>
   
   <entry>
     <title>安装mitmproxy以及遇到的坑和简单用法</title>
