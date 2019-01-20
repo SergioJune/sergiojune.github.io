@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sergiojune.com/"/>
-  <updated>2019-01-17T09:50:33.386Z</updated>
+  <updated>2019-01-20T06:19:15.957Z</updated>
   <id>http://sergiojune.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>安装mitmproxy以及遇到的坑和简单用法</title>
+    <link href="http://sergiojune.com/2019/01/20/%E5%AE%89%E8%A3%85mitmproxy%E4%BB%A5%E5%8F%8A%E9%81%87%E5%88%B0%E7%9A%84%E5%9D%91%E5%92%8C%E7%AE%80%E5%8D%95%E7%94%A8%E6%B3%95/"/>
+    <id>http://sergiojune.com/2019/01/20/安装mitmproxy以及遇到的坑和简单用法/</id>
+    <published>2019-01-20T06:18:24.772Z</published>
+    <updated>2019-01-20T06:19:15.957Z</updated>
+    
+    <content type="html"><![CDATA[<p>mitmproxy 是一款工具，也可以说是 python 的一个包，在命令行操作的工具。</p><p>MITM 即中间人攻击（Man-in-the-middle attack）</p><p><img src="https://user-gold-cdn.xitu.io/2019/1/20/16869e26f9ef7f71?w=1064&amp;h=439&amp;f=jpeg&amp;s=30825" alt=""></p><p>使用这个工具可以在命令行上进行抓包，还可以对所抓到的包进行脚本处理，非常有用。</p><h3 id="安装-mitmproxy"><a href="#安装-mitmproxy" class="headerlink" title="安装 mitmproxy"></a>安装 mitmproxy</h3><p>安装这个我们必须先安装了 pip。 pip 在安装了 python之后自带的，如果你安装了 python 就可以忽略了，如何安装这里就不说了，只说安装 mitmproxy</p><p>打开命令行，输入 <strong>pip install mitmproxy</strong>  即可</p><p><img src="https://user-gold-cdn.xitu.io/2019/1/20/16869e26f87ed164?w=1223&amp;h=639&amp;f=png&amp;s=32938" alt=""></p><p>按下回车即可下载</p><p>但是到最后下载失败</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error: Microsoft Visual C++ 14.0 is required. Get it with “Microsoft Visual C++ Build Tools”: http://landinghub.visualstudio.com/visual-cpp-build-tools</span><br></pre></td></tr></table></figure><p>是因为安装这个包的 window 系统需要首先安装 Microsoft Visual C++ V14.0以上 才行。</p><p>可以在<a href="https://visualstudio.microsoft.com/zh-hans/downloads/" target="_blank" rel="noopener">https://visualstudio.microsoft.com/zh-hans/downloads/</a> 直接下载即可，安装之后需要把 c++ de 库之类的东西都安装了，然后再在命令行进行安装 mitmproxy即可。</p><p>安装完之后查看 mitmproxy版本</p><p>命令行输入 <strong>mitmproxy –version</strong></p><p><img src="https://user-gold-cdn.xitu.io/2019/1/20/16869e26fb8f5401?w=1223&amp;h=639&amp;f=png&amp;s=30226" alt=""></p><p>显示错误，这是因为 window操作系统不支持使用 mitmproxy 这个命令，我们可以使用 mitmdump 或 mitmweb 代替。</p><p><img src="https://user-gold-cdn.xitu.io/2019/1/20/16869e26fac72494?w=1223&amp;h=639&amp;f=jpeg&amp;s=90081" alt=""></p><p>这样就成功了。</p><h2 id="如何使用-mitmproxy抓包"><a href="#如何使用-mitmproxy抓包" class="headerlink" title="如何使用 mitmproxy抓包"></a>如何使用 mitmproxy抓包</h2><p>开启抓包：<strong>mitmdump</strong></p><p><img src="https://user-gold-cdn.xitu.io/2019/1/20/16869e26fb265424?w=1223&amp;h=639&amp;f=jpeg&amp;s=101860" alt=""></p><p>这样子就是开始抓包了，监听了所有的地址，端口是 8080，如果需要改端口号，可以按 ctrl + c 退出抓包，然后输入下列命令：</p><p><strong>mitmdump -p 8889</strong></p><p>这样子就把端口号改成 8889 了</p><p><img src="https://user-gold-cdn.xitu.io/2019/1/20/16869e26f8e82cd3?w=1223&amp;h=639&amp;f=jpeg&amp;s=117131" alt=""></p><p>如果需要抓手机的包的话，就需要在你连接的 wifi 修改代理</p><p><img src="https://user-gold-cdn.xitu.io/2019/1/20/16869e271d8f11e2?w=554&amp;h=1010&amp;f=jpeg&amp;s=58624" alt=""></p><p>上面的主机名字是 你电脑抓包的 ip 地址，端口号是刚才设置的端口号。设置完了打开浏览器查看。</p><p><img src="https://user-gold-cdn.xitu.io/2019/1/20/16869e271c60062b?w=554&amp;h=1010&amp;f=jpeg&amp;s=34190" alt=""></p><p>发现需证书有问题，我们还需要安装 mitmproxy 提供的证书，要不抓包失败。</p><p>安装证书：浏览器输入 <strong>mitm.it</strong></p><p><img src="https://user-gold-cdn.xitu.io/2019/1/20/16869e272eba5a6a?w=580&amp;h=965&amp;f=jpeg&amp;s=54381" alt=""></p><p>然后根据你的手机系统进行安装即可。</p><p>然后就可以进行抓包了。在浏览器输入 <strong>baidu.com</strong> 就可以看到下面内容了。</p><p><img src="https://user-gold-cdn.xitu.io/2019/1/20/16869e271e210533?w=1223&amp;h=639&amp;f=jpeg&amp;s=368233" alt=""></p><p>电脑端的也是这样差不多，都是设置代理后安装证书，这里就不多说了。</p><h2 id="抓包之后的操作"><a href="#抓包之后的操作" class="headerlink" title="抓包之后的操作"></a>抓包之后的操作</h2><p>由于在 window上操作，只能使用 mitmdump 和 mitmweb这两个命令，mitmdump 命令是没有界面，只能进行默默地抓包，不能进行数据包的查看和过滤。而 mitmweb 和在一个网页上进行抓包的调试。所以下面我们用 mitmweb 来进行调试。</p><h4 id="1-开始抓包"><a href="#1-开始抓包" class="headerlink" title="1.开始抓包"></a><strong>1.开始抓包</strong></h4><p><strong>mitmweb -p 8889</strong></p><p><img src="https://user-gold-cdn.xitu.io/2019/1/20/16869e2722c3ddf5?w=1920&amp;h=843&amp;f=jpeg&amp;s=284948" alt=""></p><p>在你输入 baidu.com 的时候就会看到这些包了。</p><p>查看包的请求信息和响应信息只需要点击相对应的包即可。其他的就不多说了。</p><p>在 mitmproxy 上运行 python脚本</p><p>mitmproxy 的强大之处就在于它能够运行 python 脚本来处理相关的请求，现在就来看看如何处理吧。</p><p><strong>mitmdump -p 889 -s mitm.py</strong></p><p>这个就是在抓包的同时运行了 mitm.py 的脚本了，代码是：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># 必须这样写 def request(flow):  print(flow.request.headers)  # 打印请求头</span><br></pre></td></tr></table></figure><p>这个是打印抓到的请求头，<strong>方法名和参数的名称是固定的</strong>，写错了就运行不了这个脚本。</p><p><img src="https://user-gold-cdn.xitu.io/2019/1/20/16869e272ec9b454?w=845&amp;h=83&amp;f=png&amp;s=12223" alt=""></p><p>这样子就开始了，然后在手机上打开网页。</p><p><img src="https://user-gold-cdn.xitu.io/2019/1/20/16869e2749b004c0?w=1920&amp;h=1030&amp;f=jpeg&amp;s=1153155" alt=""></p><p>这样子就把他们的请求头给输出了。</p><p>但是输出并不明显，我们可以使用里面的一个日志模块来输出，这样子就会显示出不同的颜色了。</p><p><img src="https://user-gold-cdn.xitu.io/2019/1/20/16869e2740d7c008?w=1035&amp;h=240&amp;f=png&amp;s=28432" alt=""></p><p>命令行上显示这样：</p><p><img src="https://user-gold-cdn.xitu.io/2019/1/20/16869e274e66b826?w=1920&amp;h=1030&amp;f=jpeg&amp;s=1031126" alt=""></p><p>这样子就清楚多了。</p><p>除了上面的请求头，我们还可以访问他们的请求方法，请求路径等。</p><p><img src="https://user-gold-cdn.xitu.io/2019/1/20/16869e274b9e1835?w=1034&amp;h=276&amp;f=jpeg&amp;s=64649" alt=""></p><p>响应的请求也可以获取：</p><p><img src="https://user-gold-cdn.xitu.io/2019/1/20/16869e2752f1c972?w=793&amp;h=148&amp;f=png&amp;s=18753" alt=""></p><p>同样，这里的<strong>方法名和参数也是固定</strong>的，不写这个会捕捉不到。</p><p>本文完。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;mitmproxy 是一款工具，也可以说是 python 的一个包，在命令行操作的工具。&lt;/p&gt;
+&lt;p&gt;MITM 即中间人攻击（Man-in-the-middle attack）&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://user-gold-cdn.xitu.io/
+      
+    
+    </summary>
+    
+      <category term="抓包" scheme="http://sergiojune.com/categories/%E6%8A%93%E5%8C%85/"/>
+    
+    
+      <category term="mitmproxy" scheme="http://sergiojune.com/tags/mitmproxy/"/>
+    
+  </entry>
   
   <entry>
     <title>为了一窥国足输韩国之后人们的评论，我爬了懂球帝APP</title>
