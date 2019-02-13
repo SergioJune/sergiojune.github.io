@@ -1,0 +1,269 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description" content="python,sergiojune,记录，算法"><title>爬虫不得不学之 JavaScript 入门篇 | sergiojune | 梦开始的地方</title><link rel="stylesheet" type="text/css" href="//fonts.neworld.org/css?family=Source+Code+Pro"><link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.1"><link rel="stylesheet" type="text/css" href="/css/highlight.css?v=2.0.1"><link rel="Shortcut Icon" href="/favicon.ico"><link rel="bookmark" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">爬虫不得不学之 JavaScript 入门篇</h1><a id="logo" href="/.">sergiojune | 梦开始的地方</a><p class="description">路在，人就在</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div><div id="search-form"><div id="result-mask" class="hide"></div><label><input id="search-key" type="text" autocomplete="off" placeholder="Arama"></label><div id="result-wrap" class="hide"><div id="search-result"></div></div><div class="hide"><template id="search-tpl"><div class="item"><a href="/{path}" title="{title}"><div class="title">{title}</div><div class="time">{date}</div><div class="tags">{tags}</div></a></div></template></div></div></div><div id="layout" class="layout-g"><div class="layout-l"><div class="content_container"><div class="post"><h1 class="post-title">爬虫不得不学之 JavaScript 入门篇</h1><div class="post-meta"><a href="/2019/02/13/爬虫不得不学之 JavaScript 入门篇/#comments" class="comment-count"><i data-disqus-identifier="2019/02/13/爬虫不得不学之 JavaScript 入门篇/" class="disqus-comment-count"></i>留言</a><p><span class="date">Feb 13, 2019</span><span><a href="/categories/JavaScript/" class="category">JavaScript</a></span><span><i id="busuanzi_container_page_pv"><i id="busuanzi_value_page_pv"></i><i>点击</i></i></span></p></div><div class="post-content"><p>现在的爬虫越来越难了，不再和之前的那样，随便抓个包就可以找到相关的 url ，然后 post 一下或者 get 一下数据就出来了。还有一个可能就是可能你以前用来学习的爬虫网站太简单了，还没有看见过那些猛的。上两周我就想弄弄知乎登陆，参数的加密算是把 js 代码扣出来了，但是只能在浏览器上运行，一换到 Python 执行就各种报错，你不会 JavaScript 就什么都调不了，所以二话不说，开启了新的大陆。那就开始吧！  </p>
+<p>1. JavaScript 介绍</p>
+<p>JavaScript 是运行在 客户端的语言，和你们说的 Java 是很不一样的， Java 通常用于服务器端的。但是他们两者也有相似之处，比如 JavaScript 的命名规范和名称和 Java 相似。其他的好像就没有什么了，哈哈。</p>
+<p>JavaScript 也是一门脚本语言，和 python 一样，都是解释性语言，即每运行一行代码就解释一行，只不过 JavaScript 的解释器在浏览器内部。</p>
+<p>JavaScript 最初被应用是为了处理与表单相关的验证，现在应用就更加广了，可以说是几乎无所不能，比如用来做服务端开发，命令行工具、桌面程序和游戏开发等。</p>
+<p>我在学了之后也跟着弄了两个小的页面游戏，怀念童年。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f7e722ea8c?w=1026&amp;h=792&amp;f=jpeg&amp;s=39500" alt=""></p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f7e75485ef?w=490&amp;h=715&amp;f=jpeg&amp;s=10107" alt=""></p>
+<p>2.JavaScript组成  </p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f7e93d8026?w=496&amp;h=427&amp;f=png&amp;s=23900" alt=""></p>
+<ul>
+<li><p>EcmaScript：JavaScript 的核心，定义了 JavaScript 的基本语法和数据类型，也是我们今天所学的内容。</p>
+</li>
+<li><p>DOM：document odject model， 文档对象模型，用于操作网页中的页面元素的，比如可以控制相关元素的增删改查。</p>
+</li>
+<li><p>BOM：browser object model,， 浏览器对象模型， 用于操作浏览器窗口，比如弹出框，控制页面滑动等。</p>
+</li>
+</ul>
+<p>3.JavaScript 变量</p>
+<p>在了解变量之前，先要知道 JavaScript 代码写在那里：  </p>
+<ol>
+<li><p>行内，即写在 html 的元素中，不建议</p>
+</li>
+<li><p>嵌入，即写在 <script>标签内，这个练习时可以使用，但当代码量大的时候也不建议</p>
+</li>
+<li><p>外部，即 js 代码都在另一个文件内，用链接的方式接入 html 文件即可，推荐使用这种方式。</p>
+</li>
+</ol>
+<p>还有注释：</p>
+<ol>
+<li><p>单行注释： // 注释内容</p>
+</li>
+<li><p>多行注释： /* 注释内容 */  </p>
+</li>
+</ol>
+<p>3.1 变量的定义以及作用</p>
+<p>变量是计算机内存中存储数据的标识符，根据变量名称可以获取到内存中存储的数据。  </p>
+<p>使用变量我们可以更方便的获取或修改内存中的数据。</p>
+<p>3.2 定义变量</p>
+<p>使用 var 关键字来声明变量，和 python 差不多，都是弱类型的语言，只不过 python 不需要使用关键字来声明。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f7e950de07?w=504&amp;h=293&amp;f=png&amp;s=27554" alt=""></p>
+<p>注：console.log()这个方法只是在控制台打印一下变量而已。</p>
+<p>3.3 变量的命名规则和规范</p>
+<p>1)：规则-必须遵守的，不遵守就会报错，就好比人类的法律</p>
+<ul>
+<li><p>由字母、数字、下划线和 $ 组成，但是不能以数字开头，如：12asd 这个名字就会报错</p>
+</li>
+<li><p>不能是关键字或保留字，比如 var、for等</p>
+</li>
+<li><p>严格区分大小写，就是说大写和小写都是不一样的变量</p>
+</li>
+</ul>
+<p>2)：规范-建议遵守的，但不遵守也不会报错，比如人类的道德  </p>
+<ul>
+<li><p>变量名必须有意义，因为这样别人才能看得懂，而且也利于维护，没有意义的就像我们需要破解相关参数时看到的 js 混淆，想想就头痛。</p>
+</li>
+<li><p>遵守驼峰命名法，首字母小写，后面单词的首字母大写，如：userName</p>
+</li>
+</ul>
+<p>3.4 小案例</p>
+<p>了解完变量之后可以做个小案例：交换两个值</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f7e983e977?w=502&amp;h=325&amp;f=png&amp;s=25812" alt=""></p>
+<p>4. 数据类型</p>
+<p>JavaScript 的数据类型分两种，一个为简单数据类型，另一个为复杂数据类型。</p>
+<p>简单数据类型有 Number、String、Boolean、undefined 和 null。一共五种</p>
+<p>复杂数据类型比如 object，这个以后遇到再说，慢慢来。</p>
+<p>4.1 Number</p>
+<p>Number 为数值固定的表示法，用来表示整数和浮点数的。它的字面量就是数值，那字面量是什么意思呢？字面量就是这个变量表示的值，</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f907d11daa?w=260&amp;h=53&amp;f=png&amp;s=2848" alt=""></p>
+<p>比如上面变量 a 的字面量就是 12，b 的字面量就是 45。</p>
+<p>我们还可以使用 typeof 关键字来判断这个数据类型</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f7fc2b52a8?w=677&amp;h=125&amp;f=png&amp;s=19087" alt=""></p>
+<p>除了使用上面的十进制来赋值，我们还可以使用八进制和十六进制</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f7fc79e3aa?w=415&amp;h=160&amp;f=png&amp;s=12943" alt=""></p>
+<p>八进制的数是以 0 开头的，而十六进制的是以 0x 开头的，其他的进制就不讨论了。</p>
+<p>无论你写何种进制，它的存储还是以二进制来存储的，所以这样就弄成了浮点数的存储精确度，浮点数只能精确到17位小数。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f7fd8b2c70?w=1080&amp;h=66&amp;f=png&amp;s=41831" alt=""></p>
+<p>可以看到 两个浮点数的相加不是很准确，所以不要在有浮点数的运算下做判断，有可能会有你想不到的结果，如</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f803625544?w=714&amp;h=72&amp;f=png&amp;s=14354" alt=""></p>
+<p>浮点数除了直接表示我们还可以使用科学计数法，当然，整数也是一样可以使用的。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f8044199c0?w=508&amp;h=194&amp;f=png&amp;s=21406" alt=""></p>
+<p>Number 数据类型是有范围的，但是不需要我们刻意去计，记住它的关键字就可以了。  </p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f812e6fb8b?w=663&amp;h=246&amp;f=jpeg&amp;s=20479" alt=""></p>
+<p>最后再说一个关键字：NaN：not a number,这个表示不是数值，当有两个数据运算时，运算失败就会返回这个值。我们也可以判断一个数据类型是不是 NaN，使用 isNaN() 方法即可。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f818e1ad59?w=1040&amp;h=127&amp;f=png&amp;s=22474" alt=""></p>
+<p>4.2 String</p>
+<p>String 类型就是用单引号或双引号括起来的内容就是了，和 python 的字符串类型也是差不多的。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f816fa23bb?w=612&amp;h=203&amp;f=png&amp;s=30478" alt=""></p>
+<p>length 属性是获取字符串的长度。</p>
+<p>连接两个字符串可以使用 + 进行连接， + 号两边不需要全是 String 类型也可以进行连接</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f81c67fe1b?w=749&amp;h=151&amp;f=png&amp;s=26364" alt=""></p>
+<p>思考：如何打印出下列字符串</p>
+<ol>
+<li><p>我是一个”帅哥”</p>
+</li>
+<li><p>我喜欢”学‘python’”</p>
+</li>
+</ol>
+<p>这里面有单引号和双引号，如果直接进行打印的话就会出错，这时候我们就需要把这些有意义的字符给转义符，转成普通的字符</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f81c753ce5?w=1080&amp;h=431&amp;f=jpeg&amp;s=45743" alt=""></p>
+<p>根据上面的转义符，就可以写出下面语句了</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f8278dea17?w=499&amp;h=80&amp;f=png&amp;s=12632" alt=""></p>
+<p>4.3 Boolean</p>
+<p>boolean 类型，字面量只有 true 和 false，表示真假，即表示计算机的 1 和 0。</p>
+<p>当我们描述只有两种结果的事物是可以使用这个。</p>
+<p>4.4 undefined 和 null</p>
+<ol>
+<li><p>undefined 表示一个声明了没有赋值的变量，所以变量的默认值就是undefined。</p>
+</li>
+<li><p>null 只是表示为空，如果要想把该值设为 null， 只能手动赋值。</p>
+</li>
+</ol>
+<p>5. 数据类型转换</p>
+<p>5.1 其他类型转 String 类型</p>
+<ul>
+<li>使用 toString() 方法  </li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f82bb7af11?w=722&amp;h=124&amp;f=png&amp;s=23410" alt=""></p>
+<p>需要注意：undefined 和 null 类型不能使用这个方法</p>
+<ul>
+<li>使用 String() 强转，这个对任何类型都适用</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f82df4a1f5?w=615&amp;h=124&amp;f=png&amp;s=20198" alt=""></p>
+<ul>
+<li>使用 + 连接符 连接空字符，这是最方便的,也是支持所有类型</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f837690898?w=581&amp;h=126&amp;f=png&amp;s=19742" alt=""></p>
+<p>5.2 其他类型转 Number 类型</p>
+<ul>
+<li>使用 Number() ，当转不了的时候会返回 NaN,说明不是数值，在将 Boolean 类型转 Number 时，true会转为 1， false 会转为 0。这个方法不支持将数字开头带有其它字符的字符串转为数值类型，如 “12df”</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f83c310a17?w=682&amp;h=211&amp;f=png&amp;s=30883" alt=""></p>
+<ul>
+<li><p>使用 parseInt() ，只能转为整数，而且转不了Boolean。但是可以转以数字开头而带有字符的字符串。这个就可以应用在比如需要将 “16px” 转为数值，就可以使用这个。转不了时也会返回 NaN。</p>
+</li>
+<li><p>使用 parseFloat() 可以转为浮点数，当字符串为整数时也可以转为整数。需要注意的是：当字符串中有两个小数点的时候，只会转第二个小数点之前的数字，后面的都当作字符串  </p>
+</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f83a9ad9e6?w=874&amp;h=557&amp;f=jpeg&amp;s=53613" alt=""></p>
+<ul>
+<li>使用 + 或 - 来将值取正或取负。这个的功能和 Number 差不多。</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f83f855116?w=637&amp;h=158&amp;f=png&amp;s=23203" alt=""></p>
+<ul>
+<li>使用 - 来进行减法运算来转。这个使用运算符就会先把左右两边的类型先转为数值类型再运算，所以可以用来相减 0。至于 + 不行，是因为这个用来做字符串的拼接了。</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f84513669c?w=646&amp;h=119&amp;f=png&amp;s=15799" alt=""></p>
+<p>5.3 其他类型转 Boolean 类型</p>
+<p>这个使用 Boolean() 来转就可以了，所有类型都可以转。转为 false 的情况为 null、undefined、NaN、0 和 空字符串，其他情况均为 true。</p>
+<p>其实这个还可以使用隐式转换，就是不需要自己手动转，解释器会自动帮我们转，隐式转换通常用在判断语句的情况，隐式转换可以减少代码的书写，等说到判断语句再说，下面就有！</p>
+<p>6. 操作符</p>
+<p>操作符就是用来对数据类型进行操作的符号，每个语言的操作符都差不多，这里再说下可以更深刻一点！</p>
+<p>6.1 算术运算符</p>
+<p>有 + - * / % 五个，任何一个数 除 0 都为为无穷大，模 0 为 NaN</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f84a41f37b?w=719&amp;h=352&amp;f=jpeg&amp;s=28845" alt=""></p>
+<p>6.2 一元运算符</p>
+<p>一元运算符就是只需要一个操作数的运算符，有 ++、-- 和 !</p>
+<ul>
+<li><p>前置++：如 a++，变量在前，这个是先将变量的结果返回再对自身加 1，</p>
+</li>
+<li><p>后置++：如 ++a，变量在后，这个是先将变量进行自身加 1，再把结果返回</p>
+</li>
+</ul>
+<p>还有 -- 也是一样的，只是 它是自身减 1，在运算中需要注意变量在一元运算符的顺序。  </p>
+<ul>
+<li>! 就是对操作数取反，而且返回的是 Boolean 类型  </li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f86297c063?w=900&amp;h=259&amp;f=jpeg&amp;s=25649" alt=""></p>
+<p>6.3 逻辑运算符</p>
+<p>逻辑运算符有 &amp;&amp; 、|| 和 !，! 因为只对一个操作数操作所以也属于一元运算符。</p>
+<ul>
+<li><p>&amp;&amp;：这个是与运算符，只有当两边都为 true 的时候才会返回 true，其他情况都返回 false。</p>
+</li>
+<li><p>||：这个是或运算符，只有当两边都为 false 的时候才返回 false， 其他情况都返回 true。</p>
+</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f856887f1a?w=774&amp;h=209&amp;f=jpeg&amp;s=18846" alt=""></p>
+<p>6.4 关系运算符</p>
+<p>关系运算符有 &lt; > &lt;= &gt;= == != === 和 !==。运算完都是返回 Boolean 类型的，这里就不细说了，都差不多的，只说下 == 和 === 的区别，还有 !== 和 != 的区别。== 只判断两值的字面量相等不相等，不会判断数据类型，而 === 会先去判断数据类型再判断字面量，!= 和 !== 的区别也是这样。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f85c118147?w=1080&amp;h=345&amp;f=jpeg&amp;s=23191" alt=""></p>
+<p>6.5 赋值运算符</p>
+<p>赋值运算符有 += -= *= /= %= = 六个。</p>
+<p>+= 就是把左右两边的值相加起来再赋值给左边的值，其他的也一样，就不多说了。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f85c9b3d7d?w=474&amp;h=185&amp;f=png&amp;s=16094" alt=""></p>
+<p>6.6 运算符优先级从高到低（运算顺序）</p>
+<ol>
+<li><p>()</p>
+</li>
+<li><p>一元运算符</p>
+</li>
+<li><p>算术运算符，同级时先 * / 再 + -</p>
+</li>
+<li><p>关系运算符：> &gt;= &lt; &lt;=</p>
+</li>
+<li><p>相等运算符：== === != !==</p>
+</li>
+<li><p>逻辑运算符：同级时先 &amp;&amp; 再 ||</p>
+</li>
+<li><p>赋值运算符  </p>
+</li>
+</ol>
+<p>7. 流程结构</p>
+<p>JavaScript 的流程结构有三种，分别是顺序结构，分支结构和循环结构，这个也和 python 差不多的。</p>
+<p>顺序结构就是代码是按顺序从上到下执行的，分支结构就是按照给定条件的是否成立而执行不同的语句，循环结构就是重复执行某一段代码。</p>
+<p>顺序结构就不多说了，我们刚才运行的代码就是顺序结构的，现在先说下分支结构。</p>
+<p>7.1 分支结构</p>
+<p>使用分支结构可以使用 if 和 else 组成的语句，写法和 python 差不多。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f86241f649?w=506&amp;h=136&amp;f=png&amp;s=15436" alt=""></p>
+<p>单独 if 语句</p>
+<p>说到判断，就有个隐式转换，就是 if 括号里面的值会将任意类型的值隐式转换成 Boolean 类型。如下：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f867e1613f?w=648&amp;h=153&amp;f=png&amp;s=18282" alt=""></p>
+<p>另一种形式的分支语句：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f86b539c1b?w=443&amp;h=189&amp;f=png&amp;s=17193" alt=""></p>
+<p>if-else 一起用</p>
+<p>这个 if-else 合用还有个简单点的写法，叫做三元运算符，语法为</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f87183ce6c?w=445&amp;h=70&amp;f=png&amp;s=1310" alt=""></p>
+<p>当表达式1 为 true 的时候，就会把 表达式2 的值给返回，否则返回 表达式3 的值，这个有一个缺陷，就是必须要有结果返回。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f877f0d8e0?w=866&amp;h=117&amp;f=png&amp;s=17502" alt=""></p>
+<p>还有一种形式的分支语句：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f878696390?w=627&amp;h=382&amp;f=jpeg&amp;s=31812" alt=""></p>
+<p>if-else if-if 三个合用</p>
+<p>上面的 三个合用我们也可以使用 switch 语句来改写，这个是选择关键词。语法为</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f8786e02c9?w=816&amp;h=578&amp;f=png&amp;s=7219" alt=""></p>
+<p>改写后：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f87b9043b0?w=650&amp;h=496&amp;f=jpeg&amp;s=26646" alt=""></p>
+<p>因为 case 的值只能是一个值，不能是范围，所以用了个除法来解决，要不然需要写大量的 case，还需要注意一点是一定需要记得写 break，否则在匹配到相应的值之后它会一直往下运行不管 case 值是否对应，直到遇到 break 或者 全部运行完。</p>
+<p>7.2 循环结构</p>
+<p>JavaScript 的循环结构也有 while 和 for语句，但他还有 do-while语句。</p>
+<ul>
+<li>for语句：一般在确定了循环的次数就会使用这个比较方便，语法为：</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f8808c80f7?w=769&amp;h=121&amp;f=png&amp;s=2706" alt=""></p>
+<p>这个先去执行初始化表达式1， 然后去执行判断表达式2，符合条件就会执行循环体，循环体执行完之后就执行自增表达式3，再去判断，接下来就是重复刚才的动作，直到不满足判断表达式2。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f88747b32a?w=542&amp;h=176&amp;f=png&amp;s=15466" alt=""></p>
+<ul>
+<li>while 语句：在无法确定循环次数的时候就可以用这个，使用这个需要注意循环结束的条件，以免写了死循环。语法为：</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f88d17eb75?w=529&amp;h=141&amp;f=png&amp;s=2178" alt=""></p>
+<p>满足循环条件之后就执行循环体，然后再去执行循环条件，接下来就是重复刚才的动作直到不满足条件。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f88f72415f?w=404&amp;h=179&amp;f=png&amp;s=9365" alt=""></p>
+<ul>
+<li>do-while 语句：这个也是在不知道循环次数的时候使用，但是当循环体无论如何都需要执行一次的话就可以选择使用这个。语法为：</li>
+</ul>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f894b0fddf?w=381&amp;h=98&amp;f=png&amp;s=1259" alt=""></p>
+<p>先去执行循环体，再去判断循环条件，接下来就是重复刚才的动作直到循环条件不满足。</p>
+<p>在循环结构中还可以使用 break 和 continue 来对循环进行跳出的操作。break 就是跳出整个循环，就是循环结束，而 continue 是跳出本次循环，接着下一次的循环。</p>
+<p>学习了循环之后，我们也可以尝试着自己打印一个三角形，或者 99 乘法表来满足一下自己。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f907e27fc4?w=1011&amp;h=500&amp;f=jpeg&amp;s=27506" alt=""></p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f8967c5e38?w=1080&amp;h=288&amp;f=jpeg&amp;s=28826" alt=""></p>
+<p>这两个的思路都是差不多的，只要你搞定了第一个三角形的思路，下面的乘法表自然就迎刃而解了，这里就不多说了。</p>
+<p>下篇就开始进入复杂的数据类型了，即 object，准备好了吗？</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/2/13/168e61f89deaf096?w=800&amp;h=391&amp;f=jpeg&amp;s=35848" alt=""></p>
+</script></p></li></ol></div><div class="tags"><a href="/tags/JavaScript/">JavaScript</a></div><div class="post-share"><div class="bdsharebuttonbox"><span style="float:left;line-height: 28px;height: 28px;font-size:16px;font-weight:blod">分享到：</span><a href="#" data-cmd="more" class="bds_more"></a><a href="#" data-cmd="mshare" title="分享到一键分享" class="bds_mshare"></a><a href="#" data-cmd="fbook" title="分享到Facebook" class="bds_fbook"></a><a href="#" data-cmd="twi" title="分享到Twitter" class="bds_twi"></a><a href="#" data-cmd="linkedin" title="分享到linkedin" class="bds_linkedin"></a><a href="#" data-cmd="youdao" title="分享到有道云笔记" class="bds_youdao"></a><a href="#" data-cmd="evernotecn" title="分享到印象笔记" class="bds_evernotecn"></a><a href="#" data-cmd="weixin" title="分享到微信" class="bds_weixin"></a><a href="#" data-cmd="qzone" title="分享到QQ空间" class="bds_qzone"></a><a href="#" data-cmd="tsina" title="分享到新浪微博" class="bds_tsina"></a></div></div><div class="post-nav"><a href="/2019/01/21/小白也可以看会的破解抖音字体反爬/" class="next">小白也可以看会的破解抖音字体反爬</a></div><div id="comments"><div id="disqus_thread"></div></div></div></div></div><div class="layout-r"><div id="sidebar"><div class="search-pla"></div><div id="toc" class="widget"><div class="widget-title"><i class="fa fa-fei">文章目录</i></div></div><div class="widget"><div class="widget-title"><i class="fa fa-xie"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/02/13/爬虫不得不学之 JavaScript 入门篇/">爬虫不得不学之 JavaScript 入门篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/21/小白也可以看会的破解抖音字体反爬/">小白也可以看会的破解抖音字体反爬</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/20/adb安装以及一些简单的操作/">adb安装以及一些简单的操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/20/安装docker及其简单的操作/">安装docker及其简单操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/20/安装mitmproxy以及遇到的坑和简单用法/">安装mitmproxy以及遇到的坑和简单用法</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/17/为了一窥国足输韩国之后人们的评论，我爬了懂球帝APP/">为了一窥国足输韩国之后人们的评论，我爬了懂球帝APP</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/14/学习用python操作mysql/">学习用python操作mysql</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/14/谈谈如何抓取ajax动态网站/">谈谈如何抓取ajax动态网站</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/14/我爬取了37000条球迷评论，知道了这场比赛的重要信息/">我爬取了37000条球迷评论，知道了这场比赛的重要信息</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/01/14/老司机带你用python来爬取妹子图/">老司机带你用python来爬取妹子图</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-gui"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Fiddler/">Fiddler</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/JavaScript/">JavaScript</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/adb/">adb</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/blog/">blog</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/docker/">docker</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/python/">python</a><span class="category-list-count">19</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/python/数据库/">数据库</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/个人随想/">个人随想</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/基础/">基础</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/总结/">总结</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/抓包/">抓包</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">6</span></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-biao"> 标签</i></div><div class="tagcloud"><a href="/tags/数组/" style="font-size: 15px;">数组</a> <a href="/tags/hard/" style="font-size: 15px;">hard</a> <a href="/tags/adb/" style="font-size: 15px;">adb</a> <a href="/tags/坑/" style="font-size: 15px;">坑</a> <a href="/tags/爬虫/" style="font-size: 15px;">爬虫</a> <a href="/tags/足球/" style="font-size: 15px;">足球</a> <a href="/tags/栈/" style="font-size: 15px;">栈</a> <a href="/tags/单链表-冒泡排序/" style="font-size: 15px;">单链表 冒泡排序</a> <a href="/tags/docker/" style="font-size: 15px;">docker</a> <a href="/tags/mitmproxy/" style="font-size: 15px;">mitmproxy</a> <a href="/tags/字体反爬/" style="font-size: 15px;">字体反爬</a> <a href="/tags/c/" style="font-size: 15px;">c</a> <a href="/tags/单链表/" style="font-size: 15px;">单链表</a> <a href="/tags/时间复杂度/" style="font-size: 15px;">时间复杂度</a> <a href="/tags/胡思乱想/" style="font-size: 15px;">胡思乱想</a> <a href="/tags/requestst/" style="font-size: 15px;">requestst</a> <a href="/tags/抓包/" style="font-size: 15px;">抓包</a> <a href="/tags/mysql/" style="font-size: 15px;">mysql</a> <a href="/tags/JavaScript/" style="font-size: 15px;">JavaScript</a> <a href="/tags/requests/" style="font-size: 15px;">requests</a> <a href="/tags/正则表达式/" style="font-size: 15px;">正则表达式</a> <a href="/tags/urllib/" style="font-size: 15px;">urllib</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-archive"> 归档</i></div><ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-you"> 友情链接</i></div><ul></ul><a href="https://sergiojune.com/about/" title="需要设置请联系我" target="_blank">需要设置请联系我</a></div></div></div></div><a id="totop" href="#top"></a><div id="footer"><div class="footer-info"><p><a href="/baidusitemap.xml">Baidu Site Haritası</a> |  <a href="/atom.xml">订阅</a> |  <a href="/about/">关于</a></p><p>本站总访问量：<i id="busuanzi_container_site_pv"><i id="busuanzi_value_site_pv"></i></i>次</p><p><span> Copyright &copy;<a href="/." rel="nofollow">sergiojune.</a></span><span> Theme by<a rel="nofollow" target="_blank" href="https://github.com/chaooo/hexo-theme-BlueLake"> BlueLake.</a></span><span> Count by<a href="http://busuanzi.ibruce.info/"> busuanzi.</a></span><span> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a></span></p></div></div></div><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?369f545b712d2094aad4beda81dc7259";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+  })();
+</script><script type="text/javascript" src="/js/search.json.js?v=2.0.1"></script><script type="text/javascript" src="/js/toctotop.js?v=2.0.1" async></script><script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":["mshare","weixin","tsina","qzone","linkedin","fbook","twi","print","renren","sqq","evernotecn","bdysc","tqq","tqf","bdxc","kaixin001","tieba","douban","bdhome","thx","ibaidu","meilishuo","mogujie","diandian","huaban","duitang","hx","fx","youdao","sdo","qingbiji","people","xinhua","mail","isohu","yaolan","wealink","ty","iguba","h163","copy"],"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{},"image":{"viewList":["tsina","qzone","weixin","fbook","twi","linkedin","youdao","evernotecn","mshare"],"viewText":"分享到：","viewSize":"16"},"selectShare":{"bdContainerClass":null,"bdSelectMiniList":["tsina","qzone","weixin","fbook","twi","linkedin","youdao","evernotecn","mshare"]}};with(document)0[(getElementsByTagName('head')[0]||head).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+</script><script>var disqus_shortname = 'sergiojune';
+var disqus_identifier = '2019/02/13/爬虫不得不学之 JavaScript 入门篇/';
+var disqus_title = '爬虫不得不学之 JavaScript 入门篇';
+var disqus_url = 'http://sergiojune.com/2019/02/13/爬虫不得不学之 JavaScript 入门篇/';
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//sergiojune.disqus.com/count.js" async></script><script type="text/javascript" src="//sergiojune.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=1&amp;avatar_size=32&amp;excerpt_length=20&amp;hide_mods=1"></script></body></html>
