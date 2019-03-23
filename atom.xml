@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://sergiojune.com/"/>
-  <updated>2019-03-23T16:08:39.895Z</updated>
+  <updated>2019-03-23T23:46:18.174Z</updated>
   <id>http://sergiojune.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>leetcode_two-sum-1</title>
+    <link href="http://sergiojune.com/2019/03/24/two_sum_1/"/>
+    <id>http://sergiojune.com/2019/03/24/two_sum_1/</id>
+    <published>2019-03-23T23:45:06.811Z</published>
+    <updated>2019-03-23T23:46:18.174Z</updated>
+    
+    <content type="html"><![CDATA[<p>今天第一天开始刷leetcode，加油<br>题号：1<br>题目描述：</p><blockquote><p>Given an array of integers, return indices of the two numbers such that they add up to a specific target.</p></blockquote><blockquote><p>You may assume that each input would have exactly one solution, and you may not use the same element twice.</p></blockquote><p>例子:</p><blockquote><p>Given nums = [2, 7, 11, 15], target = 9,</p></blockquote><blockquote><p>Because nums[0] + nums[1] = 2 + 7 = 9,<br>return [0, 1].</p></blockquote><p>我的做法：无脑循环两次列表找到两个相加值等于需要找的值，简单暴力<br>时间复杂度：O(n^2)<br>空间复杂度：O(1)</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">twoSum</span><span class="params">(self, nums, target)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :type target: int</span></span><br><span class="line"><span class="string">        :rtype: List[int]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">0</span>, len(nums)):</span><br><span class="line">            <span class="keyword">for</span> y <span class="keyword">in</span> range(x + <span class="number">1</span>,len(nums)):</span><br><span class="line">                <span class="keyword">if</span>  nums[x] + nums[y] == target:</span><br><span class="line">                    <span class="keyword">return</span> [x, y]</span><br><span class="line">        <span class="keyword">return</span> [<span class="number">-1</span>, <span class="number">-1</span>]</span><br></pre></td></tr></table></figure><p>运行的结果，实在太慢了，都至少4秒多。<br><img src="https://user-gold-cdn.xitu.io/2019/3/24/169acdb030054253?w=922&amp;h=529&amp;f=png&amp;s=44302" alt=""></p><p>再来看看大佬们的做法：<br>用一个字典保存数组中与目标相差的值，键就是这个相差的值，而值就是这个在数组中的位置。<br>当在字典中能存在这个与目标相差的值的时候即可有结果，就是可以把当前位置和之前那个相差值的坐标返回即可。<br>主要就是寻找与目标值相差得值即可。</p><p>时间复杂度：O(n)，只需要遍历一次列表即可有结果<br>空间复杂度：O(n)，需要额外申请内存保存键值对，最多就是所有元素都保存<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">twoSum</span><span class="params">(self, nums, target)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :type target: int</span></span><br><span class="line"><span class="string">        :rtype: List[int]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        index_map = &#123;&#125;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">0</span>, len(nums)):</span><br><span class="line">            <span class="keyword">if</span> nums[x] <span class="keyword">in</span> index_map:</span><br><span class="line">                <span class="keyword">return</span> [index_map[nums[x]], x]</span><br><span class="line">            index_map[target-nums[x]] = x</span><br><span class="line">        <span class="keyword">return</span> [<span class="number">-1</span>, <span class="number">-1</span>]</span><br></pre></td></tr></table></figure></p><p>运行时间，只有64ms，我的与别人相差了一百倍差不多，有点远，哈哈。</p><p><img src="https://user-gold-cdn.xitu.io/2019/3/24/169acdd62c986730?w=953&amp;h=133&amp;f=png&amp;s=10824" alt=""></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;今天第一天开始刷leetcode，加油&lt;br&gt;题号：1&lt;br&gt;题目描述：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Given an array of integers, return indices of the two numbers such that they add
+      
+    
+    </summary>
+    
+      <category term="算法" scheme="http://sergiojune.com/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="leetcode" scheme="http://sergiojune.com/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>最近的生活状态的复盘</title>
